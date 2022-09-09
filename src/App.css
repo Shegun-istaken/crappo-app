@@ -1,38 +1,164 @@
-.App {
-  text-align: center;
+html {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+header {
+  background-color: #0d0d2b;
   color: white;
+  padding: 1% 5%;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  font-size: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  /* margin-bottom: 8%; */
 }
+
+.nav-ul {
+  display: flex;
+  gap: 3%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.nav-ul li {
+  list-style: none;
+  flex-basis: auto;
+}
+
+.nav-ul button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.nav-ul li:first-child {
+  flex-basis: 70%;
+}
+
+.nav-ul button img {
+  max-width: 135px;
+  width: 100%;
+}
+
+.nav-ul li:last-child button {
+  width: 90px;
+  height: 36px;
+  border-radius: 32px;
+  background-color: #3671e9;
+}
+
+.hero {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.hero > div {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  row-gap: 5%;
+}
+
+div.hero div:first-child {
+  flex-basis: 50%;
+}
+
+div.hero img {
+  max-width: 504px;
+  width: 45%;
+}
+
+div.hero h1{
+  font-size: 3rem;
+  margin: 4% 0;
+}
+
+div.hero p {
+  font-size: 12px;
+}
+
+.hero > div p {
+  width: 70%;
+  line-height: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.save-icon {
+  display: flex;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  width: auto;
+  /* justify-content: space-between; */
+  padding: 0;
+  margin: 0;
+  width: 50%;
+  text-align: center;
+  align-items: center;
+  border-radius: 32px;
+}
+
+.save-icon p:first-child {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  flex-basis: 25%;
+  font-weight: 500;
+  padding: 2px 5px;
+  color: black;
+  border-radius: 32px;
+}
+
+.save-icon p:last-child {
+  flex-basis: 75%;
+}
+
+div.hero button {
+  align-self: flex-start;
+  margin-top: 4%;
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  padding: 8px 8px 8px 16px;
+  border-radius: 32px;
+}
+
+/* div.hero button p{
+  flex-basis: 80%;
+} */
+div.hero button img {
+  /* flex-basis: 10%; */
+  width: 20%;
+}
+
+/* .bar1 {
+  position: absolute;
+  width: 120px;
+  height: 1002.26px;
+  left: 191px;
+  top: 1037.86px;
+}
+
+.bar2 {
+  position: absolute;
+  width: 120px;
+  height: 997.88px;
+  left: 770px;
+  top: 991.86px;
+} */
