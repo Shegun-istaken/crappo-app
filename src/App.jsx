@@ -1,70 +1,55 @@
-import bar1 from "./images/bar1.svg";
-import bar2 from "./images/bar2.svg";
-import logo from "./images/logo.svg";
-import divider from "./images/divider.svg";
-import hero from "./images/hero.svg";
-import right from "./images/right.svg"
 import "./App.css";
+import Header from "./components/Header";
+import WhyCrappo from "./components/WhyCrappo";
 
-function Header() {
+function Earn() {
   return (
-    <header>
-      <nav>
-        <ul className="nav-ul">
-          <li>
-            <button>
-              <img src={logo} alt="crappo logo" />
-            </button>
-          </li>
-          <li>
-            <button>Products</button>
-          </li>
-          <li>
-            <button>Features</button>
-          </li>
-          <li>
-            <button>About</button>
-          </li>
-          <li>
-            <button>Contact</button>
-          </li>
-          <li>
-            <button>Login</button>
-          </li>
-          <img src={divider} alt="dividing line" />
-          <li>
-            <button>Register</button>
-          </li>
-        </ul>
-      </nav>
-
-      <div className="hero">
-        <div>
-          <div className="save-icon">
-            <p>75% SAVE</p>
-            <p>For the Best Black Friday Weekend</p>
-          </div>
-          <h1>Fastest &amp; Secure Platform To Invest In Crypto</h1>
-          <p>
-            Buy and sell cryptocurrencies, trusted by 10M wallets with over $30
-            billion in transactions.
-          </p>
-          <button>
-            Try for free <img src={right} alt="right arrow" />
-          </button>
-        </div>
-        <img src={hero} alt="bitcoin icon for dashboard hero" />
+    <section className="earn">
+      <div>
+        <h2>Check how much you can earn</h2>
+        <p>
+          Let&apos;s check your hash rate to see how much you will earn today,
+          Exercitation veniam consequat sunt nostrud amet.
+        </p>
       </div>
-      {/* <img class="bar1" src={bar1} alt="" />
-      <img class="bar2" src={bar2} alt="" /> */}
-    </header>
-  )
+
+      <div className="calculate">
+        <form
+          action="submit"
+          onSubmit={(e) => {
+            // e.preventDefault();
+          }}
+        >
+          <input type="text" placeholder="Enter your hash rate" />
+          <select name="hash" id="hash">
+            <option value="th" selected>
+              TH/s
+            </option>
+            <option value="mh">MH/s</option>
+          </select>
+          <button>Calculate</button>
+        </form>
+
+        <div>
+          <h3>ESTIMATED 24 HOUR REVENUE:</h3>
+          <h4>
+            0.055 130 59 ETH <span>($1275)</span>
+          </h4>
+          <p>
+            Revenue will change based on mining difficulty and Ethereum price.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function App() {
   return (
     <>
-      <Header></Header>
+      <Header />
+      <WhyCrappo />
+      <Earn />
     </>
   );
 }
