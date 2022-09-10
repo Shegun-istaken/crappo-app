@@ -4,6 +4,10 @@
   --accent: #3671e9;
 }
 
+html{
+  askldfnl: #9db5e6;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -40,6 +44,11 @@ button {
   background-color: var(--accent);
 }
 
+button:hover{
+  cursor: pointer;
+  background-color:rgb(29, 85, 198); 
+}
+
 li {
   list-style: none;
 }
@@ -48,7 +57,8 @@ h2 {
   font-size: 2rem;
 }
 
-input:focus, select:focus{
+input:focus,
+select:focus {
   outline: 0;
 }
 
@@ -74,6 +84,17 @@ nav {
   border: none;
   color: white;
   font-size: 1rem;
+  padding-bottom:1px;
+}
+
+.nav-ul li:first-child button:hover{
+  filter: invert(53%) sepia(56%) saturate(6782%) hue-rotate(208deg) brightness(95%) contrast(93%);
+}
+
+.nav-ul li:not(:first-child) button:hover{
+  background-color: transparent;
+  border-bottom: 1px solid var(--accent);
+  border-radius: 0;
 }
 
 .nav-ul li:first-child {
@@ -86,10 +107,15 @@ nav {
 }
 
 .nav-ul li:last-child button {
-  width: 90px;
-  height: 36px;
+  width: 96px;
+  height: 40px;
   border-radius: 32px;
   background-color: var(--accent);
+}
+
+.nav-ul li:last-child button:hover{
+  background-color: rgb(29, 85, 198);
+  border-radius: 32px;
 }
 
 .hero {
@@ -169,11 +195,11 @@ div.hero button {
   display: flex;
 }
 
-/* div.hero button p{
-  flex-basis: 80%;
-} */
+div.hero button:hover{
+  background-color: rgb(29, 85, 198);
+}
+
 div.hero button img {
-  /* flex-basis: 10%; */
   width: 20%;
 }
 
@@ -282,7 +308,7 @@ section.earn div.calculate {
   position: absolute;
   top: 200px;
   left: 12%;
-  box-shadow:0px 1px 5px hsla(0, 0%, 0%, 0.3);
+  box-shadow: 0px 1px 5px hsla(0, 0%, 0%, 0.3);
 }
 
 div.calculate form {
@@ -290,7 +316,7 @@ div.calculate form {
   justify-content: space-between;
   align-items: flex-end;
   margin: 3% 5% 4% 5%;
-  gap:5%;
+  gap: 5%;
 }
 
 div.calculate form input {
@@ -298,13 +324,13 @@ div.calculate form input {
   border-right: none;
   border-top: none;
   border-bottom: 1px solid hsla(0, 0%, 0%, 0.2);
-  flex-basis:50%;
+  flex-basis: 50%;
   padding: 6px 1px;
 }
 
-input::placeholder{
+input::placeholder {
   color: hsla(0, 0%, 0%, 0.8);
-  font-size:1rem;
+  font-size: 1rem;
 }
 
 div.calculate form select {
@@ -315,33 +341,246 @@ div.calculate form select {
   flex-basis: 25%;
   padding: 6px 1px;
   color: hsla(0, 0%, 0%, 0.8);
-  font-size:1rem;
+  font-size: 1rem;
 }
 
-div.calculate button{
-  flex-basis:15%;
+div.calculate button {
+  flex-basis: 15%;
 }
 
-div.calculate > div{
+div.calculate > div {
   margin: 0 5%;
   /* padding:  */
 }
 
-div.calculate > div h3{
-  font-size:1rem;
-  font-weight:500;
+div.calculate > div h3 {
+  font-size: 1rem;
+  font-weight: 500;
   color: var(--accent);
 }
 
-div.calculate > div h4{
+div.calculate > div h4 {
   font-size: 1.7rem;
   margin: 20px 0;
 }
 
-div.calculate > div h4 span{
-  color:var(--accent);
+div.calculate > div h4 span {
+  color: var(--accent);
 }
 
-div.calculate > div p{
+div.calculate > div p {
   color: hsla(0, 0%, 0%, 0.8);
 }
+
+section.trade {
+  padding: 200px 5% 0 5%;
+  background-color: hsla(240, 54%, 11%, 0.05);
+}
+
+section.trade h2 {
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+section.trade ul {
+  margin: 0;
+  padding: 60px 0;
+  display: flex;
+  gap: 5%;
+  margin: 0 auto;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+
+section.trade li {
+  flex-basis: 25%;
+  background-color: white;
+  text-align: center;
+  padding: 3%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+
+section.trade li div {
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+
+section.trade li h3 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+}
+
+section.trade li h5 {
+  color: hsla(0, 0%, 0%, 0.4);
+}
+
+section.trade li p {
+  margin: 0 0 24px 0;
+}
+
+section.trade button {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+
+section.features {
+  background-color: var(--secondary);
+  color: white;
+  padding: 8% 0;
+}
+
+section.features h2 {
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+section.features > div {
+  margin: 72px 8% 0 8%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.features > div > div {
+  flex-basis: 40%;
+}
+
+section.features > div > img {
+  width: 50%;
+}
+
+section.features > div:nth-child(3) {
+  flex-direction: row-reverse;
+  margin-left: 0;
+}
+
+section.subscribe {
+  background-image: linear-gradient(var(--secondary), var(--primary));
+  padding: 5%;
+  color: white;
+}
+
+section.subscribe > div {
+  width: 80%;
+  padding: 2% 4%;
+  background-color: var(--accent);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2%;
+  border-radius: 16px;
+}
+
+section.subscribe > div > div:nth-child(2) {
+  flex-basis: 50%;
+  display: flex;
+  align-items: flex-end;
+  gap: 4%;
+}
+
+section.subscribe input {
+  flex-basis: 70%;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid white;
+  padding: 6px 1px;
+  background-color: transparent;
+}
+
+section.subscribe input::placeholder{
+  color: white;
+}
+
+section.subscribe button {
+  background-color: white;
+  color: black;
+}
+
+section.subscribe button:hover{
+  background-color: rgb(202, 213, 235);
+}
+
+section.subscribe > div > div:first-child {
+  flex-basis: 40%;
+}
+
+footer {
+  background-color: var(--primary);
+  color: white;
+  padding-bottom: 40px;
+}
+
+footer button {
+  margin-top: 0;
+  padding: 0;
+  border: none;
+  color: white;
+  background-color: transparent;
+  font-weight: 400;
+}
+
+footer h3{
+  margin: 0;
+}
+
+footer > div:first-child{
+  display: flex;
+  padding: 5%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+footer > div:first-child > div{
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  row-gap:24px;
+}
+
+footer > div:first-child > div:last-child{
+  row-gap:48px;
+}
+
+div.payments{
+  display: flex;
+  gap: 3%;
+}
+
+footer > div:last-child{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+ footer > div:last-child div> *{
+  margin-left: 20px;
+ }
+
+ footer button:hover{
+  background-color: transparent;
+  filter: invert(53%) sepia(56%) saturate(6782%) hue-rotate(208deg) brightness(95%) contrast(93%);
+}
+
+ .link button:hover, .resources button:hover{
+  background-color: transparent;
+  color: var(--accent);
+ }
+
+ .payments button:hover{
+  filter: invert(75%) sepia(10%) saturate(1382%) hue-rotate(186deg) brightness(96%) contrast(88%);
+ }
