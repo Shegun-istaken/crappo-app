@@ -1,6 +1,6 @@
 import { useState } from "react";
-import bar1 from "../images/bar1.svg";
-import bar2 from "../images/bar2.svg";
+// import bar1 from "../images/bar1.svg";
+// import bar2 from "../images/bar2.svg";
 import logo from "../images/logo.svg";
 import divider from "../images/divider.svg";
 import hero from "../images/hero.svg";
