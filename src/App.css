@@ -35,7 +35,7 @@ button {
   align-items: center;
   color: white;
   font-weight: 600;
-  padding: 16px 16px 16px 24px;
+  padding: 16px 16px 16px 16px;
   border-radius: 32px;
   border: none;
   background-color: var(--accent);
@@ -106,14 +106,15 @@ nav #hamburger {
   width: 100%;
 }
 
-.nav-ul li:last-child button {
+.nav-ul li:nth-child(8) button {
   width: 96px;
   height: 40px;
   border-radius: 32px;
   background-color: var(--accent);
+  text-align:center;
 }
 
-.nav-ul li:last-child button:hover {
+.nav-ul li:nth-child(8) button:hover {
   background-color: rgb(29, 85, 198);
   border-radius: 32px;
 }
@@ -598,7 +599,7 @@ footer button:hover {
 
 @media (max-width: 850px) {
   header {
-    padding: 1% 3%;
+    padding: 1% 6%;
   }
 
   header > nav > ul.nav-ul li:not(:first-child),
@@ -693,11 +694,15 @@ nav.mobile-nav ul>div button:last-child:hover{
   }
 
   div.hero > div.hero-text {
-    width: 80%;
+    width: 100%;
   }
 
   div.hero img {
     width: 90%;
+  }
+
+  section.whyCrappo{
+    padding: 0 7%;
   }
 
   section.whyCrappo ul {
@@ -708,7 +713,7 @@ nav.mobile-nav ul>div button:last-child:hover{
 
   section.whyCrappo li {
     flex-flow: row nowrap;
-    max-width: 40%;
+    max-width: 60%;
   }
 
   section.whyCrappo > div {
@@ -716,15 +721,15 @@ nav.mobile-nav ul>div button:last-child:hover{
   }
 
   section.whyCrappo > div > div {
-    width: 80%;
+    width: 100%;
   }
 
   section.whyCrappo > div > img {
-    max-width: 80%;
+    max-width: 90%;
   }
 
   section.earn > div:first-child {
-    width: 70%;
+    width: 90%;
   }
 
   section.earn div.calculate {
@@ -742,10 +747,12 @@ nav.mobile-nav ul>div button:last-child:hover{
   div.calculate input,
   div.calculate select {
     width: 100%;
+    background-color: transparent;
   }
 
   div.calculate button {
     margin-top: 0;
+    padding-left:16px;
   }
 
   section.trade {
@@ -762,7 +769,7 @@ nav.mobile-nav ul>div button:last-child:hover{
   }
 
   section.features h2 {
-    width: 100%;
+    width: 90%;
   }
 
   section.features > div,
