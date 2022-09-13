@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 import base1 from "../images/base-1.svg";

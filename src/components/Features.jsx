@@ -1,5 +1,4 @@
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect, useRef, createRef } from "react";
 import feature1 from "../images/feature-1-img.png";
 import feature2 from "../images/feature-2-img.png";
 import feature3 from "../images/feature-3-img.png";
