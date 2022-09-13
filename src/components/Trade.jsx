@@ -1,9 +1,24 @@
+import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 import bit from "../images/bitcon.png";
 import eth from "../images/ethereum.png";
 import lite from "../images/litecoin.png";
 import arrow from "../images/right-arrow-big.svg";
+import right from "../images/right-w.svg";
 
 function Trade() {
+  const [state, setState] = useState("Bitcoin");
+
+  const [firstDivH2Ref, firstDivH2Visible] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  const [tradeLiRef, tradeLiVisible] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+
   const coins = [
     {
       name: "Bitcoin",
@@ -26,19 +41,42 @@ function Trade() {
   ];
   return (
     <section className="trade">
-      <h2>Trade securely and market the high growth cryptocurrencies.</h2>
-      <ul>
-        {coins.map((coin) => (
-          <li key={coin.name}>
+      <h2
+        ref={firstDivH2Ref}
+        style={{
+          animation: firstDivH2Visible && "scale-up 1.5s ease-in-out both",
+        }}
+      >
+        Trade securely and market the high growth cryptocurrencies.
+      </h2>
+      <ul
+        ref={tradeLiRef}
+        className={`${tradeLiVisible && "trade-animate trade-mobile-animate"}`}
+      >
+        {coins.map((coin, i) => (
+          <li
+            id={state === coin.name ? "selected" : ""}
+            key={coin.name}
+            style={{ "--i": i }}
+            onClick={(e) => {
+              setState(coin.name);
+            }}
+          >
             <img src={coin.src} alt={`${coin.name} symbol`} />
             <div>
               <h3>{coin.name}</h3>
               <h5>{coin.acronym}</h5>
             </div>
             <p>{coin.text}</p>
-            <button>
-              <img src={arrow} alt="button with an arrow pointing right" />
-            </button>
+            {state === coin.name ? (
+              <button className="button-01">
+                Start Mining <img src={arrow} alt="" />
+              </button>
+            ) : (
+              <button className="button-02">
+                <img src={right} alt="button with an arrow pointing right" />
+              </button>
+            )}
           </li>
         ))}
       </ul>

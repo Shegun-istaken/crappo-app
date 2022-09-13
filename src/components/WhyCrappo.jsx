@@ -1,9 +1,17 @@
+import { useRef, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
 import base1 from "../images/base-1.svg";
 import base2 from "../images/base-2.svg";
 import base3 from "../images/base-3.svg";
 import why from "../images/why-img.png";
 
 function WhyCrappo() {
+  const [myRef, crappoVisible] = useInView({
+    threshold:0.5,
+    triggerOnce:true}, 
+    );
+
   const items = [
     { num: "$30B", title: "Digital Currency Exchange", src: `${base1}` },
     { num: "190+", title: "Countries Around The World", src: `${base2}` },
@@ -11,10 +19,10 @@ function WhyCrappo() {
   ];
 
   return (
-    <section className="whyCrappo">
-      <ul>
-        {items.map((item) => (
-          <li key={item.num}>
+    <section ref={myRef} className={`${"whyCrappo"} ${crappoVisible && "whyCrappo-animate whyCrappo-mobile-animate" }`}>
+      <ul >
+        {items.map((item, i) => (
+          <li key={item.num} style={{'--i':i}}>
             <img src={item.src} alt="" />
             <div>
               <h4>{item.num}</h4>

@@ -39,6 +39,8 @@ button {
   border-radius: 32px;
   border: none;
   background-color: var(--accent);
+
+  transition: 0.3s ease-in-out;
 }
 
 button:hover {
@@ -111,7 +113,7 @@ nav #hamburger {
   height: 40px;
   border-radius: 32px;
   background-color: var(--accent);
-  text-align:center;
+  text-align: center;
 }
 
 .nav-ul li:nth-child(8) button:hover {
@@ -119,8 +121,12 @@ nav #hamburger {
   border-radius: 32px;
 }
 
-nav.mobile-nav{
-  visibility:hidden;
+nav.mobile-nav {
+  visibility: hidden;
+}
+
+ul.nav-ul > button {
+  display: none;
 }
 
 .hero {
@@ -141,7 +147,11 @@ div.hero div:first-child {
   flex-basis: 50%;
 }
 
-div.hero img {
+.header-animate div.hero > img{
+  animation: scale-up 2s cubic-bezier(0.5, 0, 0.5, 1) both;
+}
+
+div.hero > img {
   max-width: 504px;
   width: 45%;
 }
@@ -162,6 +172,10 @@ div.hero p {
   margin: 0;
 }
 
+.header-animate .save-icon{
+  animation: slide-down 1s ease-in-out both 0.5s;
+}
+
 .save-icon {
   display: flex;
   background-color: hsla(0, 0%, 100%, 0.1);
@@ -172,6 +186,11 @@ div.hero p {
   text-align: center;
   align-items: center;
   border-radius: 32px;
+
+}
+
+.header-animate .save-icon p:first-child{
+  animation: scale-up 1s ease-in-out both 1s;
 }
 
 .save-icon p:first-child {
@@ -181,10 +200,15 @@ div.hero p {
   padding: 2px 5px;
   color: black;
   border-radius: 32px;
+
 }
 
 .save-icon p:last-child {
   flex-basis: 75%;
+}
+
+.header-animate div.hero button {
+  animation: scale-up 1s ease-in-out both 1s;
 }
 
 div.hero button {
@@ -198,14 +222,25 @@ div.hero button {
   align-self: flex-start;
   gap: 8%;
   display: flex;
+
+}
+
+.header-animate div.hero-text h1, .header-animate div.hero-text > p{
+  animation: slide-up 2s ease-in-out both;
 }
 
 div.hero button:hover {
   background-color: rgb(29, 85, 198);
 }
 
+.header-animate div.hero button img {
+  animation: slide-right 1s ease-in-out both 1s;
+}
+
 div.hero button img {
   width: 20%;
+
+  overflow-x:hidden;
 }
 
 .bar1 {
@@ -234,8 +269,15 @@ section.whyCrappo ul {
   margin: 0;
   padding: 0;
   gap: 11%;
+
+  --duration:1s;
+
 }
 
+.whyCrappo-animate li{
+  --delay: calc((var(--duration) - 0.5s) * var(--i));
+  animation: slide-up var(--duration) ease-in-out both var(--delay);
+}
 .whyCrappo li {
   display: flex;
   flex-flow: row wrap;
@@ -244,6 +286,8 @@ section.whyCrappo ul {
   gap: 4%;
   flex-basis: 26%;
 }
+
+
 
 .whyCrappo h4 {
   font-size: 1.5rem;
@@ -264,9 +308,16 @@ section.whyCrappo ul {
   color: white;
 }
 
+.whyCrappo-animate > div > img{
+  animation: scale-up 2s ease-in-out both;
+}
 .whyCrappo > div > img {
   max-width: 45%;
   width: 100%;
+}
+
+.whyCrappo-animate > div > div{
+  animation: slide-up 2s ease-in-out both;
 }
 
 .whyCrappo > div > div {
@@ -278,6 +329,10 @@ section.earn {
   color: white;
   padding: 50px 0 200px 0;
   position: relative;
+}
+
+section.earn.animate > div:first-child{
+  animation: slide-up 2s ease-in-out both;
 }
 
 section.earn > div:first-child {
@@ -294,10 +349,15 @@ section.earn h2 {
   margin-bottom: 0;
 }
 
+section.earn.animate >div:first-child p{
+  animation: scale-up 1.5s ease-in-out both 0.5s;
+}
+
 section.earn p {
   font-size: 0.8rem;
   margin-top: 20px;
   color: hsla(0, 0%, 100%, 0.5);
+
 }
 
 section.earn div.calculate {
@@ -396,6 +456,16 @@ section.trade ul {
   /* align-items: center; */
 }
 
+.trade-animate li{
+  --duration: 1s;
+  --delay: calc((var(--duration) - 0.5s) * var(--i));
+  animation: slide-left var(--duration) ease-in-out both var(--delay);
+}
+
+ul.trade-animate li > div{
+  animation: slide-up 2s ease-in-out both;
+}
+
 section.trade li {
   flex-basis: 25%;
   background-color: white;
@@ -406,6 +476,31 @@ section.trade li {
   justify-content: center;
   align-items: center;
   border-radius: 16px;
+  cursor: pointer;
+}
+
+section.trade > ul > li#selected{
+  background-color:var(--secondary);
+  color: white;
+  transition: 0.7s ease-in-out;
+}
+
+section.trade li#selected h5 {
+  color: hsla(0, 0%, 94%, 0.4);
+}
+
+section.trade > ul > li#selected button.button-01{
+  display:flex;
+  font-weight:600;
+  gap:10px;
+  background-color: var(--accent);
+  padding: 16px 24px;
+}
+
+button.button-01 img{
+  background-color:white;
+  border-radius: 100px;
+  width:20px
 }
 
 section.trade li div {
@@ -455,6 +550,10 @@ section.features > div {
   gap: 10%;
   justify-content: space-between;
   align-items: center;
+}
+
+div.feature-animation{
+  animation: scale-up 2s ease-in-out both;
 }
 
 section.features > div > div {
@@ -507,7 +606,7 @@ section.subscribe input {
 }
 
 section.subscribe input::placeholder {
-  color: white;
+  color: hsla(0, 0%, 100%, 0.5);
 }
 
 section.subscribe button {
@@ -607,86 +706,112 @@ footer button:hover {
     display: none;
   }
 
-  nav #hamburger, nav #x {
-    visibility: visible;
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(335deg) brightness(107%) contrast(102%);
+  ul.nav-ul > button {
+    display: inline-block;
   }
 
-  nav #hamburger:hover, nav #x:hover{
+  nav #hamburger,
+  nav #x {
+    visibility: visible;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(335deg)
+      brightness(107%) contrast(102%);
+  }
+
+  nav #hamburger:hover,
+  nav #x:hover {
     filter: invert(53%) sepia(56%) saturate(6782%) hue-rotate(208deg)
-    brightness(95%) contrast(93%);
+      brightness(95%) contrast(93%);
   }
 
-  nav #x{
-    display:flex;
-    position:absolute;
-    right:24px;
-    top:48px;
+  nav #x {
+    display: flex;
+    position: absolute;
+    right: 24px;
+    top: 48px;
   }
 
-  nav.mobile-nav{
+  nav.mobile-nav {
     visibility: visible;
-    position:fixed;
+    position: fixed;
     margin: 0;
-    padding:0;
-    border:0;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
-    width:100%;
-    height:100%;
-    z-index:1;
+    padding: 0;
+    border: 0;
+    top: 0%;
+    left:-100%;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     transition: 1s ease-in-out;
-    background-color:var(--primary);
-}
+    background-color: var(--primary);
+    transition: 0.5s ease-in-out;
+  }
 
-nav.mobile-nav ul{
-  display:flex;
-  flex-direction:column;
-  gap:24px;
-  align-items: center;
-  margin-top: 160px;
-  padding:0;
-}
+  nav.mobile-nav.active{
+    left:0;
+  }
 
-nav.mobile-nav ul button{
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 1.4rem;
-  padding-bottom: 1px;
-  font-weight: 400;
-}
+  @keyframes slide-in{
+    0%{}
+    100%{
+      transform: translateX(100%)
+    }
+  }
 
-nav.mobile-nav ul button:hover{
-  background-color: transparent;
-  border-bottom: 1px solid var(--accent);
-  border-radius: 0;
-}
+  @keyframes slide-out{
+    0%{}
+    100%{
+      transform: translateX(-200%)
+    }
+  }
 
-nav.mobile-nav ul>div button:last-child{
-  border-radius: 32px;
-  background-color: var(--accent);
-  font-size: 1.2rem;
-  padding:8px 16px;
-}
+  nav.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    margin-top: 160px;
+    padding: 0;
+  }
 
-nav.mobile-nav ul>div button:last-child:hover{
-  background-color: rgb(29, 85, 198);
-  border-radius: 32px;
-}
+  nav.mobile-nav ul button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.4rem;
+    padding-bottom: 1px;
+    font-weight: 400;
+  }
 
-.mobile-nav ul div{
-  display:flex;
-  flex-flow: row wrap;
-  gap:10%;
-  margin-top: 16px;
-  /* align-items: center; */
-  justify-content:center;
-  width: 200px;
-}
+  nav.mobile-nav ul button:hover {
+    background-color: transparent;
+    border-bottom: 1px solid var(--accent);
+    border-radius: 0;
+  }
+
+  nav.mobile-nav ul > div button:last-child {
+    border-radius: 32px;
+    background-color: var(--accent);
+    font-size: 1.2rem;
+    padding: 8px 16px;
+  }
+
+  nav.mobile-nav ul > div button:last-child:hover {
+    background-color: rgb(29, 85, 198);
+    border-radius: 32px;
+  }
+
+  .mobile-nav ul div {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10%;
+    margin-top: 16px;
+    /* align-items: center; */
+    justify-content: center;
+    width: 200px;
+  }
 
   .hero {
     flex-direction: column;
@@ -701,8 +826,21 @@ nav.mobile-nav ul>div button:last-child:hover{
     width: 90%;
   }
 
-  section.whyCrappo{
-    padding: 0 7%;
+  section.whyCrappo {
+    padding: 48px 7%;
+  }
+
+  .whyCrappo-mobile-animate li{
+    --delay: calc((var(--duration) - 0.5s) * var(--i));
+    animation: slide-up 1s ease-in-out both var(--delay);
+  }
+
+  .whyCrappo-mobile-animate > div > img{
+    animation: scale-up 2s ease-in-out both 1s;
+  }
+  
+  .whyCrappo-mobile-animate > div > div{
+    animation: slide-up 2s ease-in-out both 1.2s;
   }
 
   section.whyCrappo ul {
@@ -752,7 +890,7 @@ nav.mobile-nav ul>div button:last-child:hover{
 
   div.calculate button {
     margin-top: 0;
-    padding-left:16px;
+    padding-left: 16px;
   }
 
   section.trade {
@@ -762,6 +900,10 @@ nav.mobile-nav ul>div button:last-child:hover{
   section.trade ul {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .trade-mobile-animate li{
+    animation: slide-up 1s ease-in-out both calc(var(--i) * 0.5s);
   }
 
   section.trade h2 {
@@ -833,7 +975,6 @@ nav.mobile-nav ul>div button:last-child:hover{
   footer > div:last-child div > button:first-child {
     margin-left: 0px;
   }
-
 }
 
 @media (max-width: 525px) {
@@ -848,15 +989,88 @@ nav.mobile-nav ul>div button:last-child:hover{
   div.payments {
     flex-direction: column;
   }
-
 }
 
 @media (max-width: 230px) {
-  .mobile-nav ul div{
+  .mobile-nav ul div {
     width: auto;
   }
 
-  .mobile-nav ul div img{
-    visibility:hidden;
+  .mobile-nav ul div img {
+    visibility: hidden;
   }
 }
+
+/* ..........................................................................................................................
+                      KEYFRAMES
+............................................................................................................................
+*/
+
+@keyframes scale-up {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  90%,
+  to {
+    opacity: 1;
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity:1;
+  }
+}
+
+@keyframes slide-up{
+  from{
+    transform:translateY(100%);
+    opacity:0;
+  }
+  80%, to{
+    opacity:1;
+  }
+  to{
+    transform:none;
+  }
+}
+
+@keyframes slide-right{
+  from{
+    transform: translateX(-100%);
+    opacity:0;
+  }
+  25%{
+    opacity: 0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+
+@keyframes slide-left{
+  from{
+    transform: translateX(200%);
+    opacity:0;
+  }
+  25%{
+    opacity: 0;
+  }
+  to{
+    transform:translateX(0);
+    opacity:1;
+  }
+}
+
+
+

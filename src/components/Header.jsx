@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 // import bar1 from "../images/bar1.svg";
 // import bar2 from "../images/bar2.svg";
 import logo from "../images/logo.svg";
@@ -10,7 +11,7 @@ import x from "../images/x.svg";
 
 function MobileNav(props) {
   return (
-    <nav className="mobile-nav">
+    <nav className={props.classname}>
       <img name="x" onClick={props.OnClick} src={x} alt="X icon" id="x" />
       <ul>
         <li>
@@ -37,25 +38,24 @@ function MobileNav(props) {
 
 function Header() {
   const [nav, setNav] = useState(null);
+  const [myRef, headerVisible] = useInView({
+    threshold:0.3,
+    triggerOnce:true}, 
+    );
 
   function handleClick(e) {
     let name = e.target.name;
 
     if (name === "hamburger") {
-      setNav(
-        <MobileNav
-          OnClick={(e) => {
-            handleClick(e);
-          }}
-        />
+      setNav("active"
       );
     } else {
-      setNav(null);
+      setNav("");
     }
   }
 
   return (
-    <header>
+    <header ref={myRef} className={`${headerVisible && "header-animate header-mobile-animate" }`}>
       <nav>
         <ul className="nav-ul">
           <li>
@@ -95,7 +95,12 @@ function Header() {
             />
           </button>
         </ul>
-        {nav}
+        <MobileNav 
+        classname={`mobile-nav ${nav}`}
+          OnClick={(e) => {
+            handleClick(e);
+          }}
+        />
       </nav>
 
       <div className="hero">
