@@ -5,7 +5,7 @@ import feature3 from "../images/feature-3-img.png";
 
 function Features() {
   const [firstDivH2Ref, firstDivH2Visible] = useInView({
-    threshold: 0.5,
+    threshold: 0.00000001,
     triggerOnce: true,
   });
 

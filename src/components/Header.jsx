@@ -1,61 +1,23 @@
-import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 // import bar1 from "../images/bar1.svg";
-// import bar2 from "../images/bar2.svg";
+// import bar2 from "../images/bar2.svg";jg
 import logo from "../images/logo.svg";
 import divider from "../images/divider.svg";
 import hero from "../images/hero.svg";
 import right from "../images/right.svg";
-import hamburger from "../images/hamburger.svg";
-import x from "../images/x.svg";
-
-function MobileNav(props) {
-  return (
-    <nav className={props.classname}>
-      <img name="x" onClick={props.OnClick} src={x} alt="X icon" id="x" />
-      <ul>
-        <li>
-          <button>Products</button>
-        </li>
-        <li>
-          <button>Features</button>
-        </li>
-        <li>
-          <button>About</button>
-        </li>
-        <li>
-          <button>Contact</button>
-        </li>
-        <div>
-          <button>Login</button>
-          <img src={divider} alt="dividing line" />
-          <button>Register</button>
-        </div>
-      </ul>
-    </nav>
-  );
-}
+import MobileMenu from "./MobileMenu";
 
 function Header() {
-  const [nav, setNav] = useState(null);
   const [myRef, headerVisible] = useInView({
-    threshold:0.3,
-    triggerOnce:true}, 
-    );
-
-  function handleClick(e) {
-    let name = e.target.name;
-
-    if (name === "hamburger") {
-      setNav("active"
-      );
-    } else {
-      setNav("");
-    }
-  }
+    threshold: 0.3,
+    triggerOnce: true
+  });
 
   return (
-    <header ref={myRef} className={`${headerVisible && "header-animate header-mobile-animate" }`}>
+    <header
+      ref={myRef}
+      className={`${headerVisible && "header-animate header-mobile-animate"}`}
+    >
       <nav>
         <ul className="nav-ul">
           <li>
@@ -82,25 +44,8 @@ function Header() {
           <li>
             <button>Register</button>
           </li>
-          <button
-            onClick={(e) => {
-              handleClick(e);
-            }}
-          >
-            <img
-              src={hamburger}
-              name="hamburger"
-              alt="hamburger menu"
-              id="hamburger"
-            />
-          </button>
+          <MobileMenu />
         </ul>
-        <MobileNav 
-        classname={`mobile-nav ${nav}`}
-          OnClick={(e) => {
-            handleClick(e);
-          }}
-        />
       </nav>
 
       <div className="hero">
