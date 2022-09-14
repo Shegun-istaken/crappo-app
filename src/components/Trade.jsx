@@ -15,11 +15,6 @@ function Trade() {
     Aos.init({ duration:"2000"});
   });
 
-  const [firstDivH2Ref, firstDivH2Visible] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-
   const [tradeLiRef, tradeLiVisible] = useInView({
     threshold: 0.3,
     triggerOnce: true,

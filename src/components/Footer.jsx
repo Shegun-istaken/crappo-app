@@ -20,8 +20,7 @@ function Footer() {
   const links = ["Home", "Products", "About", "Features", "Contact"];
 
   const resources = ["Resources", "Download Whitepaper", "Smart Token", "Blockchain Developer", "Crypto API", "Interest"]
-
-  const payment = [ <img src={visa} alt="visa logo" />, <img src={mastercard} alt="mastercard logo" />,               <img src={bitcoin} alt="bitcoin logo" />]
+  
   return (
     <footer>
       <div>
