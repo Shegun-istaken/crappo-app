@@ -1,36 +1,26 @@
-import { useInView } from "react-intersection-observer";
+import {useEffect} from "react";
+import Aos from "aos";
+import "aos/dist/aos.css"
 
 function Earn() {
-  const [firstDivRef, firstDivVisible] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-  const [firstDivPRef, firstDivPVisible] = useInView({
-    threshold: 0.5,
-    triggerOnce: true,
-  });
-  const [firstDivCalcRef, firstDivCalcVisible] = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
+
+  useEffect(() => {
+    Aos.init({ duration:"2000"});
   });
 
 
   return (
     <section className="earn">
-      <div
-        ref={firstDivRef}
-        style={{ animation: firstDivVisible && "slide-up 2s ease-in-out both" }}
+      <div data-aos="slide-up"
       >
         <h2>Check how much you can earn</h2>
-        <p         ref={firstDivPRef}
-        style={{ animation: firstDivPVisible && "scale-up 1.5s ease-in-out both 0.5s" }}>
+        <p   data-aos="slide-up" >
           Let&apos;s check your hash rate to see how much you will earn today,
           Exercitation veniam consequat sunt nostrud amet.
         </p>
       </div>
 
-      <div className="calculate" ref={firstDivCalcRef}
-        style={{ animation: firstDivCalcVisible && "scale-up 2s ease-in-out both" }}>
+      <div className="calculate" data-aos="zoom-in-down" >
         <form
           action="submit"
           onSubmit={(e) => {

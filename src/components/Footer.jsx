@@ -1,6 +1,11 @@
+import FooterList from "./FooterLists";
 import logo from "../images/logo.svg";
 import visa from "../images/visa.svg";
 import mastercard from "../images/mastercard.svg";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 import bitcoin from "../images/bitcoin.svg";
 import facebook from "../images/facebook.svg";
 import instagram from "../images/instagram.svg";
@@ -9,36 +14,32 @@ import twitter from "../images/twitter.svg";
 import linkedin from "../images/linkedin.svg";
 
 function Footer() {
+  useEffect(() => {
+    Aos.init({ duration: "2000" });
+  });
+  const links = ["Home", "Products", "About", "Features", "Contact"];
+
+  const resources = ["Resources", "Download Whitepaper", "Smart Token", "Blockchain Developer", "Crypto API", "Interest"]
+
+  const payment = [ <img src={visa} alt="visa logo" />, <img src={mastercard} alt="mastercard logo" />,               <img src={bitcoin} alt="bitcoin logo" />]
   return (
     <footer>
       <div>
-        <button><img src={logo} alt="Crappo Logo" /></button>
-        <div className="links">
-          <h3>Quick Link</h3>
-          <button>Home</button>
-          <button>Products</button>
-          <button>About</button>
-          <button>Features</button>
-          <button>Contact</button>
-        </div>
-        <div className="resources">
-          <h3>Resources</h3>
-          <button>Download Whitepaper</button>
-          <button>Smart Token</button>
-          <button>Blockchain Developer</button>
-          <button>Crypto API</button>
-          <button>Interest</button>
-        </div>
+        <button>
+          <img src={logo} alt="Crappo Logo" />
+        </button>
+        <FooterList list={links} heading="Quick Link" className="links"/>
+        <FooterList list={resources} heading="Resources" className="resources"/>
         <div>
           <h3>We accept the following payment systems</h3>
           <div className="payments">
-            <button>
+            <button data-aos="fade-up">
               <img src={visa} alt="visa logo" />
             </button>
-            <button>
+            <button data-aos="fade-up">
               <img src={mastercard} alt="mastercard logo" />
             </button>
-            <button>
+            <button data-aos="fade-up">
               <img src={bitcoin} alt="bitcoin logo" />
             </button>
           </div>

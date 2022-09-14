@@ -1,15 +1,18 @@
-import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function Subscribe() {
 
-  const [sectionRef, sectionVisible] = useInView({
-    threshold:0.3,
-    triggerOnce: true,
-  })
+  useEffect(() => {
+    Aos.init({ duration:"3000"});
+  });
+
 
   return (
-    <section className="subscribe" >
-      <div ref={sectionRef} style={{animation: sectionVisible && "scale-up 2s ease-in-out both"}}>
+    <section className="subscribe">
+      <div data-aos="flip-up"
+      >
         <div>
           <h2>Start mining now</h2>
           <p>

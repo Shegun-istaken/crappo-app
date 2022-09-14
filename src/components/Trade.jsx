@@ -1,5 +1,7 @@
 import { useInView } from "react-intersection-observer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css"
 import bit from "../images/bitcon.png";
 import eth from "../images/ethereum.png";
 import lite from "../images/litecoin.png";
@@ -8,6 +10,10 @@ import right from "../images/right-w.svg";
 
 function Trade() {
   const [state, setState] = useState("Bitcoin");
+
+  useEffect(() => {
+    Aos.init({ duration:"2000"});
+  });
 
   const [firstDivH2Ref, firstDivH2Visible] = useInView({
     threshold: 0.5,
@@ -41,11 +47,7 @@ function Trade() {
   ];
   return (
     <section className="trade">
-      <h2
-        ref={firstDivH2Ref}
-        style={{
-          animation: firstDivH2Visible && "scale-up 1.5s ease-in-out both",
-        }}
+      <h2 data-aos="zoom-in"
       >
         Trade securely and market the high growth cryptocurrencies.
       </h2>
